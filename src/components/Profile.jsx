@@ -86,7 +86,7 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* Images Gallery */}
+          {/* Images  */}
           <div className="md:col-span-2">
             <p className="text-sm text-gray-500 mb-2">Photos</p>
 

@@ -9,6 +9,8 @@ import Requests from "./components/Requests"
 import Connections from "./components/Connections"
 import Chat from "./components/Chat"
 import Feed from "./components/Feed"
+// import VideoCall from "./components/VideoCall"
+// import IncomingCallPopup from "./components/IncomingCallPopup"
 
 
 
@@ -17,10 +19,12 @@ function App() {
 
   return (
     <>
+
+       {/* <IncomingCallPopup /> */}
      <Routes>
 
 
-<Route  element={<Header/>}> 
+    <Route  element={<Header/>}> 
         <Route path="/" element={<Feed/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/updateProfile" element={<UpdateProfile/>}/>
@@ -34,6 +38,8 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/chat/:id" element={<Chat/>} />
+      {/* <Route path="/call" element={<VideoCall />} /> */}
+
 
      </Routes>
     

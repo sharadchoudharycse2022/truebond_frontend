@@ -8,6 +8,7 @@ import { BASE_URL } from "../constant";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error,setError]=useState("")
   const { setUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -24,6 +25,8 @@ const Login = () => {
         withCredentials: true,
       });
 
+    
+
       setUser(res.data);
 
       if (res.status == 200) {
@@ -31,6 +34,11 @@ const Login = () => {
       }
     } catch (err) {
       console.log(err);
+      if (err.response?.status === 401) {
+        setError("Invalid credentials");
+      } else {
+        setError("Something went wrong");
+      }
     }
   }
 
@@ -74,6 +82,8 @@ const Login = () => {
               Login
             </button>
           </form>
+
+         {error && <p className="text-red-600 text-center pt-2 text-lg">{error}</p>}
 
           <p className="text-xl text-gray-600 text-center mt-5">
             Don’t have an account?{" "}
